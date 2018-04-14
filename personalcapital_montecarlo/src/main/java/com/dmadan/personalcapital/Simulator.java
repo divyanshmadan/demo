@@ -46,10 +46,9 @@ public class Simulator {
             }
         }
 
-        //update portfolios at end of simulations
         for (Portfolio p : portfolios) {
             SimulatorState ss = progress.get(p);
-            p.setSimulationMedian(ss.getPercentile(50));
+            p.setSimulationMedian20year(ss.getPercentile(50));
             p.setSimulationBottom10(ss.getPercentile(10));
             p.setSimulationTop10(ss.getPercentile(90));
         }
@@ -79,17 +78,14 @@ public class Simulator {
         this.periods = periods;
     }
 
-    //internal class to save state during a simulation run
     private class SimulatorState {
         private NormalDistribution normalDistribution;
         private DescriptiveStatistics stats;
 
         public SimulatorState(double mean, double standardDeviation) {
-            //init distribution for sampling
-            //using default Randomizer
+
             this.normalDistribution = new NormalDistribution(mean, standardDeviation);
 
-            //to store results and compute percentiles
             this.stats = new DescriptiveStatistics();
         }
 
@@ -106,3 +102,4 @@ public class Simulator {
         }
     }
 }
+

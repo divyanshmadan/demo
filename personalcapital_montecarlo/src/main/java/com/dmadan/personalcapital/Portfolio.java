@@ -6,11 +6,10 @@ package com.dmadan.personalcapital;
 public class Portfolio {
     private String portfolioName;
     private double initialInvestment;
-    private double mean;//return
-    private double standardDeviation;//risk
+    private double mean;
+    private double standardDeviation;
 
-    //simulated values
-    private double simulationMedian;
+    private double simulationMedian20year;
     private double simulationTop10;
     private double simulationBottom10;
 
@@ -53,12 +52,12 @@ public class Portfolio {
         this.standardDeviation = standardDeviation;
     }
 
-    public double getSimulationMedian() {
-        return simulationMedian;
+    public double getSimulationMedian20year() {
+        return simulationMedian20year;
     }
 
-    public void setSimulationMedian(double simulationMedian) {
-        this.simulationMedian = simulationMedian;
+    public void setSimulationMedian20year(double simulationMedian20year) {
+        this.simulationMedian20year = simulationMedian20year;
     }
 
     public double getSimulationTop10() {
@@ -81,8 +80,9 @@ public class Portfolio {
     public String toString() {
         return "Portfolio [portfolioName=" + portfolioName + ", initialInvestment="
                 + initialInvestment + ", return=" + mean + ", risk="
-                + standardDeviation + ",20th year Median=" + simulationMedian
+                + standardDeviation + ",20th year Median=" + simulationMedian20year
                 + ", 10% Best=" + simulationTop10
                 + ", 10% Worst=" + simulationBottom10 + "]";
     }
 }
+
